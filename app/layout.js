@@ -8,8 +8,8 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Get Me A Chai - Fund your projects with chai",
-  description: "This website is a frowdfunding platform for creators loveers",
+  title: "Creators Flame - Fund your projects with chai",
+  description: "This website is a crowdfunding platform for creator's loveers",
 };
 
 export default function RootLayout({ children }) {

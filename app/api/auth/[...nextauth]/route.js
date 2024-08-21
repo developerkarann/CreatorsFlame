@@ -14,13 +14,13 @@ export const authOptions = NextAuth({
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            authorization: {
-                params: {
-                  prompt: "consent",
-                  access_type: "offline",
-                  response_type: "code"
-                }
-              }
+            // authorization: {
+            //     params: {
+            //       prompt: "consent",
+            //       access_type: "offline",
+            //       response_type: "code"
+            //     }
+            //   }
         }),
     ],
     callbacks: {
@@ -39,7 +39,25 @@ export const authOptions = NextAuth({
                     })
                 }
                 return true
+            };
+
+            if (account.provider == "google") {
+                // Connect to the database
+                await connectDatabase()
+                const currentUser = await User.findOne({ email: email })
+                if (!currentUser) {
+                    const newUser = await User.create({
+                        email: user.email,
+                        name: user.name,
+                        username: user.email.split('@')[0],
+                        profilePic: user.image
+                    })
+                }
+                // console.log(account)
+                return true
             }
+
+
         },
         async session({ session, token, user }) {
             const dbUser = await User.findOne({ email: session.user.email })
@@ -47,23 +65,6 @@ export const authOptions = NextAuth({
             return session
         },
     },
-    async signIn({user, account, profile, email, credentials  }) {
-        if (account.provider == "google") {
-            //Connect to the database
-            // await connectDatabase()
-            // const currentUser = await User.findOne({ email: email })
-            // if (!currentUser) {
-            //     const newUser = await User.create({
-            //         email: user.email,
-            //         name: user.name,
-            //         username: user.email.split('@')[0],
-            //         profilePic: user.image
-            //     })
-            // }
-            return true
-        }
-    },
-
 })
 
 export { authOptions as GET, authOptions as POST }

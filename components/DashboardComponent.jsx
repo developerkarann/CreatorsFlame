@@ -24,6 +24,7 @@ const DashboardComponent = () => {
 
   const getData = async () => {
     let user = await fetchUser(session.user.name)
+    console.log(user)
     setForm(user)
   }
 
@@ -40,6 +41,9 @@ const DashboardComponent = () => {
     getData()
   }, [])
 
+  // return <>
+  
+  // </>
 
   return (
     <>

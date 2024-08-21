@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <nav className="bg-black text-white flex justify-between px-4  items-center  md:h-14 flex-col md:flex-row"  >
             <Link href={'./'} className="logo font-bold md:text-lg my-2 md:my-0 flex gap-1 justify-center items-center text-2xl ">
-                <span className='text-purple-400' >CREATOR FLAME</span>
+                <span className='text-purple-400' >CREATORS FLAME</span>
                 <span><img className='mb-2' src="./assest/flame.gif" width={30} alt="" /></span>
             </Link>
             <ul className="flex justify-between gap-4 ">
