@@ -2,6 +2,7 @@
 import { signIn, useSession } from "next-auth/react"
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import toast from "react-hot-toast"
 
 
 const Login = () => {
@@ -93,6 +94,7 @@ const Login = () => {
                                                         className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                                                         type="password" placeholder="Password" />
                                                     <button
+                                                        onClick={() => toast.error('Please login with Google or Github')}
                                                         className="mt-5 tracking-wide font-semibold bg-gradient-to-br  from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br 
                                                    focus:ring-4  focus:ring-purple-300 dark:focus:ring-purple-800 
                                                    shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 text-gray-100 w-full py-4 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center  focus:outline-none">
@@ -119,7 +121,7 @@ const Login = () => {
 
                                                     <div className='flex gap-2 mt-3'>
                                                         <p>Don't have an account?</p>
-                                                        <p onClick={()=> setIsLogin(false)} className=' text-blue-800 cursor-pointer  underline'>Click here :)</p>
+                                                        <p onClick={() => setIsLogin(false)} className=' text-blue-800 cursor-pointer  underline'>Click here :)</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -131,7 +133,7 @@ const Login = () => {
 
                                     {/* Sign up form  */}
                                     <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-                        
+
                                         <div className="flex flex-col items-center">
                                             <h1 className="text-2xl xl:text-3xl font-extrabold">
                                                 Create Account
@@ -165,6 +167,7 @@ const Login = () => {
                                                         className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                                                         type="text" placeholder="Razorpay Secret" />
                                                     <button
+                                                        onClick={() => toast.error('Please login with Google or Github')}
                                                         className="mt-5 tracking-wide font-semibold bg-gradient-to-br  from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br 
                                                    focus:ring-4  focus:ring-purple-300 dark:focus:ring-purple-800 
                                                    shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 text-gray-100 w-full py-4 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center  focus:outline-none">
@@ -191,7 +194,7 @@ const Login = () => {
 
                                                     <div className='flex gap-2 mt-3'>
                                                         <p>Have an account?</p>
-                                                        <p onClick={()=>setIsLogin(true)} className=' text-blue-800  underline cursor-pointer'>Click here :)</p>
+                                                        <p onClick={() => setIsLogin(true)} className=' text-blue-800  underline cursor-pointer'>Click here :)</p>
                                                     </div>
                                                 </div>
                                             </div>
