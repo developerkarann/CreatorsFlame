@@ -14,13 +14,6 @@ export const authOptions = NextAuth({
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            // authorization: {
-            //     params: {
-            //       prompt: "consent",
-            //       access_type: "offline",
-            //       response_type: "code"
-            //     }
-            //   }
         }),
     ],
     callbacks: {
@@ -29,7 +22,9 @@ export const authOptions = NextAuth({
             if (account.provider == 'github') {
                 //Connect to the database
                 await connectDatabase()
-                const currentUser = await User.findOne({ email: email })
+                const currentUser = await User.findOne({ email: user.email })
+                console.log("Current User", currentUser)
+                console.log('Logged In Clicked')
                 if (!currentUser) {
                     const newUser = await User.create({
                         email: user.email,
@@ -37,6 +32,8 @@ export const authOptions = NextAuth({
                         username: user.email.split('@')[0],
                         profilePic: user.image
                     })
+                    console.log('New User')
+                    console.log(newUser)
                 }
                 return true
             };
@@ -44,7 +41,8 @@ export const authOptions = NextAuth({
             if (account.provider == "google") {
                 // Connect to the database
                 await connectDatabase()
-                const currentUser = await User.findOne({ email: email })
+                const currentUser = await User.findOne({ email: user.email })
+                console.log('Logged In Clicked')
                 if (!currentUser) {
                     const newUser = await User.create({
                         email: user.email,
@@ -52,6 +50,8 @@ export const authOptions = NextAuth({
                         username: user.email.split('@')[0],
                         profilePic: user.image
                     })
+                    console.log('New User')
+                    console.log(newUser)
                 }
                 // console.log(account)
                 return true

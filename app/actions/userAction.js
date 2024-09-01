@@ -54,42 +54,43 @@ export const fetchAllUser = async () => {
 export const updateProfile = async (data, oldUsername) => {
     await connectDatabase();
     let ndata = Object.fromEntries(data);
-
+    //   console.log('Update Profile')
     if (oldUsername !== ndata.username) {
         let user = await User.findOne({ username: ndata.username })
+        console.log('Existing User', user)
         if (user) {
             return { error: 'Username already exists' }
-            console.log("Username already exists")
+            // console.log("Username already exists")
         }
         await User.findOneAndUpdate({ email: ndata.email }, ndata)
         //Now update all the username in the [Payments table]
         await Payment.updateMany({ to_user: oldUsername }, { to_user: ndata.username })
-        console.log('Inside')
-        console.log(oldUsername, ndata)
+        // console.log('Inside')
+        console.log(oldUsername)
     } else {
         await User.findOneAndUpdate({ email: ndata.email }, ndata)
-        console.log('Outside')
+        // console.log('Outside')
     }
 
 }
 
 
 export const CreateUser = async (data) => {
-      await connectDatabase();
-      let userData = Object.fromEntries(data)
+    await connectDatabase();
+    let userData = Object.fromEntries(data)
 
-      let existingUser = await User.findOne({username: userData.username})
-      if(existingUser){
-        return {error: 'User Already Exists'}
-      }
-     await User.create({
+    let existingUser = await User.findOne({ username: userData.username })
+    if (existingUser) {
+        return { error: 'User Already Exists' }
+    }
+    await User.create({
         name: userData.name,
         email: userData.email,
         username: userData.username,
         password: userData.password,
         razorpayId: userData.razorpayId,
         razorpaySecret: userData.razorpaySecret
-     })
+    })
 }
 
 
