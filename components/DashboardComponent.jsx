@@ -81,7 +81,7 @@ const DashboardComponent = () => {
             <label htmlFor="username"  className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
               Username
             </label>
-            <input type="text"  value={form.username ? form.username : ""} onChange={handleChange} name='username' id='username' className=' block w-full p-2 text-gray-900
+            <input type="text" value={form.username ? form.username : ""} onChange={handleChange} name='username' id='username' className=' block w-full p-2 text-gray-900
                  border border-gray-300 bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 
                  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500 rounded' />
           </div>
@@ -118,7 +118,7 @@ const DashboardComponent = () => {
           </div>
           <div className="my-2">
             <label htmlFor="razorpaySecret" className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
-              Razor Secret
+              Razorpay Secret
             </label>
             <input type="text" value={form.razorpaySecret ? form.razorpaySecret : ""} onChange={handleChange} name='razorpaySecret' id='razorpaySecret' className=' block w-full p-2 text-gray-900
                  border border-gray-300 bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 

@@ -64,11 +64,32 @@ export const updateProfile = async (data, oldUsername) => {
         await User.findOneAndUpdate({ email: ndata.email }, ndata)
         //Now update all the username in the [Payments table]
         await Payment.updateMany({ to_user: oldUsername }, { to_user: ndata.username })
-
+        console.log('Inside')
+        console.log(oldUsername, ndata)
     } else {
         await User.findOneAndUpdate({ email: ndata.email }, ndata)
+        console.log('Outside')
     }
 
+}
+
+
+export const CreateUser = async (data) => {
+      await connectDatabase();
+      let userData = Object.fromEntries(data)
+
+      let existingUser = await User.findOne({username: userData.username})
+      if(existingUser){
+        return {error: 'User Already Exists'}
+      }
+     await User.create({
+        name: userData.name,
+        email: userData.email,
+        username: userData.username,
+        password: userData.password,
+        razorpayId: userData.razorpayId,
+        razorpaySecret: userData.razorpaySecret
+     })
 }
 
 
