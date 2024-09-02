@@ -5,15 +5,15 @@ export default function Home() {
   return (
     <>
       <div className="flex justify-center text-white flex-col items-center h-[44vh] text-xs md:text-base  gap-7 px-5 md:px-0 ">
-        <div className=" flex gap-1 py-7 font-bold text-3xl justify-center items-center">Craetor's Flame
+        <div className=" flex gap-1 py-7 font-bold text-3xl justify-center items-center">Creator's Flame
           <span><img className="invertImg" src="./assest/flame.gif" width={40} alt="" /></span>
         </div>
-        <p className="text-center text-base md:text-left">
-          A crowdfunding platform for cerators to fund their projects.
+        <p className="text-center text-base md:text-left mb-5">
+          A crowd funding platform for creators & developers to fund their projects.
         </p>
-        <p className="text-center text-[10px] md:text-sm md:text-left">
-          A place where your fans can buy you a chai. Unlesh the power of your fans and get your projects funded.
-        </p>
+        {/* <p className="text-center text-[10px] md:text-sm md:text-left">
+          A place where your fans can buy you flame. Unlesh the power of your fans and get your projects funded.
+        </p> */}
         <div className="">
           <Link href={'/login'}>
             <button type="button" class="text-white bg-gradient-to-r
