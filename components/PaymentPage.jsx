@@ -133,29 +133,7 @@ const PaymentPage = ({ username }) => {
                                         paymentForm.name?.length < 3 ||
                                         paymentForm.message?.length < 4}>Pay</button>
                             </div>
-                            <div className="flex flex-col md:flex-row gap-2 mt-5">
-                                <button onClick={() => pay(1000)} disabled={
-                                    paymentForm.amount?.length == 0 ||
-
-                                    paymentForm.amount?.length < 1 ||
-                                    paymentForm.name?.length < 3 ||
-                                    paymentForm.message?.length < 4
-                                }
-                                    className='bg-slate-800 p-3 rounded-lg'>Pay $10</button>
-                                <button onClick={() => pay(2000)} disabled={
-                                    paymentForm.amount?.length == 0 ||
-
-                                    paymentForm.amount?.length < 1 ||
-                                    paymentForm.name?.length < 3 ||
-                                    paymentForm.message?.length < 4}
-                                    className='bg-slate-800 p-3 rounded-lg'>Pay $20</button>
-                                <button onClick={() => pay(3000)} disabled={
-                                    paymentForm.amount?.length == 0 ||
-                                    paymentForm.amount?.length < 1 ||
-                                    paymentForm.name?.length < 3 ||
-                                    paymentForm.message?.length < 4}
-                                    className='bg-slate-800 p-3 rounded-lg'>Pay $30</button>
-                            </div>
+                          
                         </div>
                     </div>
                 </div>
