@@ -92,10 +92,10 @@ const PaymentPage = ({ username }) => {
                         {currentUser.name}
                     </div>
                     <div className="text-sm text-slate-400">
-                        Let's help {username} to get a Chai!
+                        Let's support {username}
                     </div>
                     <div className="text-sm text-slate-400">
-                        {payments.length} Payments - {payments.reduce((a, b) => a + b.amount, 0)} raised
+                        {payments.length} Payments - ₹{payments.reduce((a, b) => a + b.amount, 0)} raised
                     </div>
 
                     <div className="payment flex gap-3 w-[80%] mb-11 mt-11  flex-col md:flex-row ">
@@ -108,7 +108,7 @@ const PaymentPage = ({ username }) => {
                                         return (
                                             <li className='my-4 flex gap-2 items-center' key={index}>
                                                 <img width={30} src="./assest/user.gif" alt="" />
-                                                <span>{data.name} donated <span className="font-bold">{data.amount} </span>  with a message <span className="text-slate-400">"{data.message}"</span> </span>
+                                                <span>{data.name} donated <span className="font-bold"> ₹{data.amount} </span>  with a message <span className="text-slate-400">"{data.message}"</span> </span>
                                             </li>
                                         )
                                     })
